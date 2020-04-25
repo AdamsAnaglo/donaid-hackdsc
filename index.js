@@ -7,6 +7,9 @@ const path = require("path");
 const helmet = require("helmet");
 const compression = require("compression");
 const cookieParser = require("cookie-parser");
+var firebase = require("firebase/app");
+require("firebase/auth");
+require("firebase/firestore");
 // const bodyParser = require("body-parser");
 
 // routes
