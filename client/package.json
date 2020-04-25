@@ -9,6 +9,7 @@
     "antd": "^4.1.4",
     "axios": "^0.19.2",
     "history": "^4.10.1",
+    "http-proxy-middleware": "^1.0.3",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
