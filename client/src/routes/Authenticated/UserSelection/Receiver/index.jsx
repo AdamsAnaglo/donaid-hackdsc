@@ -1,6 +1,6 @@
 import React from "react";
 
-const Main = () => {
+const Receiver = () => {
   return (
     <div>
       <h2>Hello</h2>
@@ -8,4 +8,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Receiver;

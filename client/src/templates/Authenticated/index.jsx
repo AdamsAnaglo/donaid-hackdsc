@@ -1,10 +1,13 @@
 import React from "react";
-import { Layout, Card, Tooltip, Button, Menu } from "antd";
+import { Layout, Card, Menu } from "antd";
 import { Link } from "react-router-dom";
-import { CloseCircleOutlined, CheckCircleOutlined } from "@ant-design/icons";
-// import { Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 // Shared
 import Heading from "../../components/Unauthenticated/Heading";
+// Routes
+import UserSelection from "../../components/Authenticated/UserSelection";
+import Giver from "../../components/Authenticated/UserSelection/Giver";
+import Receiver from "../../components/Authenticated/UserSelection/Receiver";
 
 const { Content, Footer, Header } = Layout;
 
@@ -21,7 +24,7 @@ const Authenticated = () => {
             style={{ textAlign: "center" }}
           >
             <Menu.Item key="1">
-              <Link to="/">Selection</Link>
+              <Link to="/user-selection">User Selection</Link>
             </Menu.Item>
             <Menu.Item key="2">
               <Link to="/auth/logout">Log Out</Link>
@@ -29,22 +32,15 @@ const Authenticated = () => {
           </Menu>
         </Header>
         <Content>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "88vh",
-            }}
-          >
-            <h2>What Type of User Are You?</h2>
-            <Button>Giver</Button>
-            <Button>Receiver</Button>
-          </div>
-          <div
+          <Switch>
+            <Route path="/user-selection" exact component={UserSelection} />
+            <Route path="/giver" exact component={Giver} />
+            <Route path="/receiver" exact component={Receiver} />
+          </Switch>
+          {/* <div
             style={{ margin: "0 auto", textAlign: "center", width: "100vw" }}
-          >
-            {/* <Card
+          > */}
+          {/* <Card
               style={{ width: 240 }}
               cover={
                 <img
@@ -66,7 +62,7 @@ const Authenticated = () => {
                 description="www.instagram.com"
               />
             </Card> */}
-          </div>
+          {/* </div> */}
         </Content>
         <Footer></Footer>
       </Layout>

@@ -18,7 +18,7 @@ function App() {
   // By default, unauth is true. We will do a conditional check to see if the user has authenticated properly after the six-digit Twilio code has returned true/verified.
   // Need to connect to endpoint that would give me that data.
 
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   return (
     <div className="App">
