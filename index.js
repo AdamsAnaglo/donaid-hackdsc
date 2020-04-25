@@ -17,6 +17,27 @@ const app = express();
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 5000;
 
+// firebase phone auth implementation
+var config = firebase.initializeApp({
+    apiKey: '<your-api-key>',
+    authDomain: '<your-auth-domain>',
+    databaseURL: '<your-database-url>',
+    projectId: '<your-cloud-firestore-project>',
+    storageBucket: '<your-storage-bucket>',
+    messagingSenderId: '<your-sender-id>'
+});
+
+var fb = firebase.initializeApp(config)
+firebase.auth().useDeviceLanguage()
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+  'size': 'invisible',
+  'callback': function(response) {
+    // reCAPTCHA solved, allow signInWithPhoneNumber.
+    onSignInSubmit();
+  }
+});
+
+
 // bodyparser stuff goes here eventually
 
 app.use("/auth", authRoutes);
