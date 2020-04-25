@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input } from "antd";
 
 const Giver = () => {
+  const [state, setState] = useState({
+    temporaryInputValue: "",
+  });
+
+  function handleInputChange(e) {
+    // console.log(e.target.value);
+    setState({ ...state, temporaryInputValue: e.target.value });
+  }
+
+  const { temporaryInputValue } = state;
+
   return (
     <div>
       <div
@@ -15,7 +26,7 @@ const Giver = () => {
       >
         <Form>
           <Form.Item>
-            <Input />
+            <Input onChange={handleInputChange} value={temporaryInputValue} />
           </Form.Item>
         </Form>
       </div>

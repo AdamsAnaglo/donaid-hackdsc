@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/github/license/williamleiby/portfolio)](https://github.com/williamleiby/hackdsc/blob/master/LICENSE)
 
-![Drawing](../hackdsc/client/src/assets/svgs/main.svg)
+![Drawing](./client/src/assets/svgs/main.svg)
 
 DonAid is a donation brokerage platform where there are two types of user; givers and receivers. Receivers are individuals suffering from short-term financial harship and are looking for funds to help them get through uncertain times. Givers are individuals looking to send funds those most in need.
 
