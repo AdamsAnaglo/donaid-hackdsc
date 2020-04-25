@@ -9,9 +9,18 @@ const compression = require("compression");
 const cookieParser = require("cookie-parser");
 // const bodyParser = require("body-parser");
 
+// routes
+const apiRoutes = require("./server/routes/api");
+const authRoutes = require("./server/routes/auth");
+
 const app = express();
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 5000;
+
+// bodyparser stuff goes here eventually
+
+app.use("/auth", authRoutes);
+app.use("/api", apiRoutes);
 
 app.use(helmet());
 app.use(cookieParser());
