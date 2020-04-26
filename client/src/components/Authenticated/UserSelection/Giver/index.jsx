@@ -14,10 +14,14 @@ const Giver = () => {
   }
   const { temporaryInputValue } = state;
   function handleClick() {
+    console.log(temporaryInputValue)
     let recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha');
-    firebase.auth().signInWithPhoneNumber("+1 1122334455",recaptcha).then(function(e) {
+    firebase.auth().signInWithPhoneNumber(temporaryInputValue,recaptcha).then(function(e) {
       let code = prompt('Enter the verification code: ',"");
       if (code==null) return;
+      console.log(e.results)
+      console.log(e.target)
+
       e.confirm(code).then(function(results) {
         console.log(results.user,"user");
         alert("You have signed up")
