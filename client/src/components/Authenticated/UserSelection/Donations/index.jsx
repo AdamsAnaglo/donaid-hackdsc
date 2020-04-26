@@ -30,12 +30,7 @@ const Donations = () => {
   const giverDescription = "Hello I am William and this is a description.";
 
   const declineReceiver = () => {
-    // console.log("Declined receiver...");
-    for (
-      const receiverIndex = 0;
-      dummyData.indexOf(receiverIndex);
-      ++receiverIndex
-    ) {}
+    console.log("Declined receiver...");
   };
 
   const { receiversList } = state;
