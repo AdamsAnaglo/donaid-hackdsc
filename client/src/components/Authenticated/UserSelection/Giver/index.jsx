@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input } from "antd";
+import phoneAuth from './'
 
 const Giver = () => {
+    const [state, setState] = useState({
+        tempInput: "",
+    });
+    
+    function handleInpputChange(e) {
+        console.log(e.target.value)
+        setState({ ...state, tempInput: e.target.value})
+        
+    };
+
   return (
     <div>
       <div
@@ -13,9 +24,11 @@ const Giver = () => {
           height: "88vh",
         }}
       >
-        <Form>
+        <Form action="/userAuth" method="POST">
           <Form.Item>
-            <Input />
+            <Input id="number" />
+            <div id="recaptcha-container"></div>
+            <button type="submit" >SendCode</button>
           </Form.Item>
         </Form>
       </div>
