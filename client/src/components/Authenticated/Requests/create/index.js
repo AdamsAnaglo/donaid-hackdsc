@@ -51,7 +51,11 @@ class CreateRequest extends Component {
             message,
             date
         }).then(addedDoc => {
-            
+            var did = addedDoc.id;
+            this.ref.doc(did).update({
+                date:firebase.firestore.Timestamp.now()
+            });
+            console.log(did);
             console.log('Request submitted successfully', addedDoc);
             this.setState({
                 username: "",
