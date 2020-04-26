@@ -12,6 +12,12 @@ require("firebase/auth");
 require("firebase/firestore");
 // const bodyParser = require("body-parser");
 
+const admin = require('firebase-admin');
+const admin = require('firebase-admin');  
+admin.initializeApp();
+
+let db = admin.firestore();
+
 // routes
 const apiRoutes = require("./server/routes/api");
 const authRoutes = require("./server/routes/auth");

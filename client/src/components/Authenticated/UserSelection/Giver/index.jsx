@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Form, Input } from "antd";
+
+import {db} from "../../../Firebase";
+import firebase from "../../../Firebase"
+
 import phoneAuth from './'
 
+
 const Giver = () => {
-<<<<<<< HEAD
-    const [state, setState] = useState({
+<!--     const [state, setState] = useState({
         tempInput: "",
     });
     
@@ -12,8 +16,7 @@ const Giver = () => {
         console.log(e.target.value)
         setState({ ...state, tempInput: e.target.value})
         
-    };
-=======
+    }; -->
   const [state, setState] = useState({
     temporaryInputValue: "",
   });
@@ -22,9 +25,31 @@ const Giver = () => {
     // console.log(e.target.value);
     setState({ ...state, temporaryInputValue: e.target.value });
   }
-
   const { temporaryInputValue } = state;
->>>>>>> 65b584e00c1079a521001837774fe2a76ea12884
+
+  function handleClick() {
+    let recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha');
+    firebase.auth().signInWithPhoneNumber("+1 1122334455",recaptcha).then(function(e) {
+      let code = prompt('Enter the verification code: ',"");
+      if (code==null) return;
+      e.confirm(code).then(function(results) {
+        console.log(results.user,"user");
+        alert("You have signed up")
+      })
+    })
+  }
+
+
+
+  let data = {
+    username: 'testuser',
+    bank_auth: false,
+    phone: '1110111',
+    points: '0',
+    uid:'1232frewg',
+  };
+  
+  let setDoc = db.collection('Donors').doc('testUser').set(data);
 
   return (
     <div>
@@ -39,13 +64,10 @@ const Giver = () => {
       >
         <Form action="/userAuth" method="POST">
           <Form.Item>
-<<<<<<< HEAD
             <Input id="number" />
             <div id="recaptcha-container"></div>
             <button type="submit" >SendCode</button>
-=======
             <Input onChange={handleInputChange} value={temporaryInputValue} />
->>>>>>> 65b584e00c1079a521001837774fe2a76ea12884
           </Form.Item>
         </Form>
       </div>

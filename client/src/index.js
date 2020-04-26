@@ -1,9 +1,13 @@
 import React, { Suspense } from "react";
 import { render } from "react-dom";
-import { Router } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import { Spin } from "antd";
 import App from "./App";
 import history from "./utils/history";
+import CreateRequest from "./components/Authenticated/Requests/create";
+import ViewRequest from "./components/Authenticated/Requests/view";
+import RequestDet from "./components/Authenticated/Requests/view/individual/RequestDet";
+import Unauth from "./components/Unauthenticated/Heading"
 // import * as serviceWorker from './serviceWorker';
 
 render(
@@ -24,6 +28,10 @@ render(
     >
       <App />
     </Suspense>
+    <Route path="/signup" component={Unauth} />
+    <Route path="/create" component={CreateRequest} />
+    <Route path="/view" component={ViewRequest}/>
+    <Route path="/request/:id" component={RequestDet} />
   </Router>,
   document.getElementById("root")
 );
