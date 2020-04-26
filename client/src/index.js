@@ -5,11 +5,12 @@ import { Spin } from "antd";
 import App from "./App";
 import history from "./utils/history";
 import CreateRequest from "./components/Authenticated/Requests/create";
+import ViewRequest from "./components/Authenticated/Requests/view";
+import RequestDet from "./components/Authenticated/Requests/view/individual/RequestDet";
 // import * as serviceWorker from './serviceWorker';
 
 render(
   <Router history={history}>
-    <Route path="/create" component={CreateRequest} />
     <Suspense
       fallback={
         <div
@@ -26,6 +27,9 @@ render(
     >
       <App />
     </Suspense>
+    <Route path="/create" component={CreateRequest} />
+    <Route path="/view" component={ViewRequest}/>
+    <Route path="/request/:id" component={RequestDet} />
   </Router>,
   document.getElementById("root")
 );

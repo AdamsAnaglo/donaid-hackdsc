@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
 import {db} from "../../../Firebase";
+import * as firebase from 'firebase';
 
 // import ui components
 import {
@@ -42,6 +43,8 @@ class CreateRequest extends Component {
             return;
         }
 
+        
+
         this.ref.add({
             username,
             message,
@@ -60,6 +63,7 @@ class CreateRequest extends Component {
 
     render() {
         const {username,message,date} = this.state;
+        
 
         return (
             <Pane background="white" padding={24} maxWidth={800} margin={"auto"}>
