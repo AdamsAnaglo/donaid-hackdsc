@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Input } from "antd";
 import {db} from "../../../Firebase";
+import firebase from "../../../Firebase"
 
 const Giver = () => {
   const [state, setState] = useState({
@@ -11,8 +12,20 @@ const Giver = () => {
     // console.log(e.target.value);
     setState({ ...state, temporaryInputValue: e.target.value });
   }
-
   const { temporaryInputValue } = state;
+  function handleClick() {
+    let recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha');
+    firebase.auth().signInWithPhoneNumber("+1 1122334455",recaptcha).then(function(e) {
+      let code = prompt('Enter the verification code: ',"");
+      if (code==null) return;
+      e.confirm(code).then(function(results) {
+        console.log(results.user,"user");
+        alert("You have signed up")
+      })
+    })
+  }
+
+
 
   let data = {
     username: 'testuser',
@@ -38,6 +51,8 @@ const Giver = () => {
         <Form>
           <Form.Item>
             <Input onChange={handleInputChange} value={temporaryInputValue} />
+            <div id="recaptcha"></div>
+            <button onClick={handleClick}>Send code</button>
           </Form.Item>
         </Form>
       </div>
