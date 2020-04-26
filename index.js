@@ -7,10 +7,10 @@ const path = require("path");
 const helmet = require("helmet");
 const compression = require("compression");
 const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 var firebase = require("firebase/app");
 require("firebase/auth");
 require("firebase/firestore");
-// const bodyParser = require("body-parser");
 
 const admin = require("firebase-admin");
 admin.initializeApp();
@@ -35,7 +35,7 @@ function render() {
 function phoneAuth(num) {
   firebase
     .auth()
-    .SignInWithPhoneNumber(number, window.recapchaVerifier)
+    .SignInWithPhoneNumber(num, window.recapchaVerifier)
     .then(function (confirmationResult) {
       coderesult = confirmationResult;
       console.log(coderesult);
@@ -48,6 +48,8 @@ const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 5000;
 
 // bodyparser stuff goes here eventually
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
@@ -60,7 +62,7 @@ app.use(
     credentials: true,
     origin:
       ENV === "production"
-        ? ["https://domain-name.com", "https://www.domain-name.com"]
+        ? ["https://hackdsc-donaid.appspot.com/", "https://donaid.tech"]
         : "http://localhost:3000",
   })
 );
@@ -71,8 +73,8 @@ app.get("/some-route", (req, res, next) => {
   res.send({ someKey: "someValue" });
 });
 
-app.post("/userAuth", function (req, res) {
-  phoneAuth();
+app.post("/userAuth", (req, res) => {
+  phoneAuth("1122334455");
 });
 
 if (ENV === "production") {

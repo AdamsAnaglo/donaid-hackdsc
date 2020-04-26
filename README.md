@@ -71,6 +71,10 @@ Due to the unfortunate ability to get Firebase authentication working properly v
 
 In [App.js](./client/src/App.js) in the client/ folder, changing the boolean value of the 'isAuthenticated' constant from true to false will alternate between the two major states of application.
 
+Attempts to push the application up to Google Cloud Platform (AppEngine) have been made at:
+- https://hackdsc-donaid.appspot.com/
+- https://donaid.tech/
+
 ## Built With 🛠
 
 - [Google Cloud Platform](https://cloud.google.com/) - Cloud Computing Platform
