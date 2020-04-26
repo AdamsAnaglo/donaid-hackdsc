@@ -1,13 +1,15 @@
 import React, { Suspense } from "react";
 import { render } from "react-dom";
-import { Router } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import { Spin } from "antd";
 import App from "./App";
 import history from "./utils/history";
+import CreateRequest from "./components/Authenticated/Requests/create";
 // import * as serviceWorker from './serviceWorker';
 
 render(
   <Router history={history}>
+    <Route path="/create" component={CreateRequest} />
     <Suspense
       fallback={
         <div
