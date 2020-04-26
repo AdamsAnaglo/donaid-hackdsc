@@ -10,7 +10,7 @@ const Home = () => {
         }}
       >
         <img
-          src={require("../../../assets/svgs/home.svg")}
+          src={require("../../../assets/svgs/main.svg")}
           alt="Home"
           style={{ width: "40%", height: "40%", margin: "2rem 0" }}
         />
