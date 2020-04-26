@@ -22,9 +22,10 @@ class CreateRequest extends Component {
         this.state = {
             username: "",
             message: "",
-            date:""
+            date:" "
         };
     }
+    
 
     onChange = e => {
         const state = this.state;
@@ -33,8 +34,9 @@ class CreateRequest extends Component {
     };
 
     submitForm = (e) => {
+        
 
-        const {username, message,date} = this.state;
+        const {username, message,date=firebase.firestore.Timestamp.now()} = this.state;
 
         if (username === '' || message === '') {
             toaster.danger("Error!", {
@@ -50,6 +52,7 @@ class CreateRequest extends Component {
             message,
             date
         }).then(addedDoc => {
+            
             console.log('Request submitted successfully', addedDoc);
             this.setState({
                 username: "",
