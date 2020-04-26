@@ -6,7 +6,7 @@
 
 ## Product Description 🔬
 
-DonAid is a donation brokerage platform where there are two types of user; givers and receivers. Receivers are individuals suffering from short-term financial harship and are looking for funds to help them get through uncertain times. Givers are individuals looking to send funds to those most in need.
+DonAid is a donation brokerage platform where there are two types of user; givers and receivers. Receivers are individuals suffering from short-term financial hardship and are looking for funds to help them get through uncertain times. Givers are individuals looking to send funds to those most in need.
 
 DonAid matches givers with receivers in a one-way mirror approach; Givers know who the receivers are, while receivers do not know who the givers are.
 
