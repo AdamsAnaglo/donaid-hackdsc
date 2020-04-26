@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Input } from "antd";
+import {db} from "../../../Firebase";
 
 const Giver = () => {
   const [state, setState] = useState({
@@ -12,6 +13,16 @@ const Giver = () => {
   }
 
   const { temporaryInputValue } = state;
+
+  let data = {
+    username: 'testuser',
+    bank_auth: false,
+    phone: '1110111',
+    points: '0',
+    uid:'1232frewg',
+  };
+  
+  let setDoc = db.collection('Donors').doc('testUser').set(data);
 
   return (
     <div>
