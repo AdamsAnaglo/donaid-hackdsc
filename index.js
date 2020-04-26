@@ -12,8 +12,7 @@ require("firebase/auth");
 require("firebase/firestore");
 // const bodyParser = require("body-parser");
 
-const admin = require('firebase-admin');
-const admin = require('firebase-admin');  
+const admin = require("firebase-admin");
 admin.initializeApp();
 
 let db = admin.firestore();
@@ -22,30 +21,31 @@ let db = admin.firestore();
 const apiRoutes = require("./server/routes/api");
 const authRoutes = require("./server/routes/auth");
 
+// firebase phone auth implementation
+// window.onload = function () {
+//   render();
+// };
+
+function render() {
+  window.recapchaVerifier = new firebase.auth.RecaptchaVerifier(
+    "recaptcha-container"
+  );
+  recaptchaVerifier.render();
+}
+function phoneAuth(num) {
+  firebase
+    .auth()
+    .SignInWithPhoneNumber(number, window.recapchaVerifier)
+    .then(function (confirmationResult) {
+      coderesult = confirmationResult;
+      console.log(coderesult);
+      alert("Message sent");
+    });
+}
+
 const app = express();
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 5000;
-
-// firebase phone auth implementation
-window.onload=function () {
-    render();
-}
-
-function render() {
-    window.recapchaVerifier = new firebase.auth.RecaptchaVerifier("recaptcha-container");
-    recaptchaVerifier.render();
-}
-function phoneAuth(num) {
-    firebase.auth().SignInWithPhoneNumber(number,window.recapchaVerifier).then(function (confirmationResult) {
-        coderesult = confirmationResult;
-        console.log(coderesult);
-        alert("Message sent");
-    })
-}
-
-app.post('/userAuth', function(req, res) {
-    phoneAuth();
-}
 
 // bodyparser stuff goes here eventually
 
@@ -69,6 +69,10 @@ app.enable("trust proxy", 1);
 
 app.get("/some-route", (req, res, next) => {
   res.send({ someKey: "someValue" });
+});
+
+app.post("/userAuth", function (req, res) {
+  phoneAuth();
 });
 
 if (ENV === "production") {

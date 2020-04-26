@@ -16,7 +16,7 @@ All receivers have to do if they wish to potentially receive funds from givers i
 
 If givers wish to send money to receivers, they are required to do a bit more. Due to the preservation of anonymity for every giver, we don't ask for their first or last name. Rather, we only ask for a unique username and phone number. After account creation, they are then presented with a single profile of a receiver. The giver has full control over whether or not they wish to fund this receiver. If they decide not to lend to a particular receiver, that receiver will be placed in the back of a queue where other receivers will be show to giver before are potentially shown to giver again.
 
-If a giver does, however, choose to send funds to a receiver, they will then be directed to input their desired amount (maxium of \$500?) and their payments are processed via Stripe.
+If a giver does, however, choose to send funds to a receiver, they will then be directed to input their desired amount (maximum of \$500) and their payments are processed via Stripe.
 
 Receivers then receive a notification via their phone that they have been gifted funds, along with an optional message the giver can choose to send with the funds.
 
@@ -62,13 +62,24 @@ $ yarn dev
 
 Navigate to either your [Local Port](http://localhost:3000) or [Network Port](http://10.0.0.7:3000) to see the application running.
 
+## Routing 🚕
+
+Due to the unfortunate ability to get Firebase authentication working properly via phone numbers, you will have to manually overwrite code to see the two major states of the application:
+
+- Authenticated
+- Unauthenticated
+
+In [App.js](./client/src/App.js) in the client/ folder, changing the boolean value of the 'isAuthenticated' constant from true to false will alternate between the two major states of application.
+
 ## Built With 🛠
 
 - [Google Cloud Platform](https://cloud.google.com/) - Cloud Computing Platform
+  - [AppEngine](https://cloud.google.com/appengine/) - Web Application Hosting
   - [Firebase](https://firebase.google.com/) - JavaScript Run-Time Environment
 - [React.js](https://reactjs.org/) - UI Library
-- [Node.js](https://nodejs.org/) - JavaScript Run-Time Environment
+- [Express.js](https://expressjs.com/) - Web Framework for Node.js
 - [Plaid](https://nodejs.org/) - Technology Layer for Financial Services Institutions
+- [Stripe](https://stripe.com/) - Payments Processing Service
 
 All of the libraries and packages used in this project can be found in the following files:
 
@@ -78,7 +89,7 @@ All of the libraries and packages used in this project can be found in the follo
 ## Creators 🧠
 
 - [William Leiby](https://github.com/williamleiby)
-- [Ebtesam ?](https://github.com/ebtesam25)
+- [Ebtesam](https://github.com/ebtesam25)
 - [Edmund Lui](https://github.com/Edmund-Lui98)
 - [Adams Anaglo](https://github.com/AdamsAnaglo)
 
