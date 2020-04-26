@@ -95,7 +95,7 @@ All of the libraries and packages used in this project can be found in the follo
 ## Creators 🧠
 
 - [William Leiby](https://github.com/williamleiby)
-- [Ebtesam](https://github.com/ebtesam25)
+- [Ebtesam Haque](https://github.com/ebtesam25)
 - [Edmund Lui](https://github.com/Edmund-Lui98)
 - [Adams Anaglo](https://github.com/AdamsAnaglo)
 
