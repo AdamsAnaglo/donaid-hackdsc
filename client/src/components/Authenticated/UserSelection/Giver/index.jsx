@@ -1,9 +1,22 @@
 import React, { useState } from "react";
 import { Form, Input } from "antd";
+
 import {db} from "../../../Firebase";
 import firebase from "../../../Firebase"
 
+import phoneAuth from './'
+
+
 const Giver = () => {
+<!--     const [state, setState] = useState({
+        tempInput: "",
+    });
+    
+    function handleInpputChange(e) {
+        console.log(e.target.value)
+        setState({ ...state, tempInput: e.target.value})
+        
+    }; -->
   const [state, setState] = useState({
     temporaryInputValue: "",
   });
@@ -13,6 +26,7 @@ const Giver = () => {
     setState({ ...state, temporaryInputValue: e.target.value });
   }
   const { temporaryInputValue } = state;
+
   function handleClick() {
     let recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha');
     firebase.auth().signInWithPhoneNumber("+1 1122334455",recaptcha).then(function(e) {
@@ -48,11 +62,12 @@ const Giver = () => {
           height: "88vh",
         }}
       >
-        <Form>
+        <Form action="/userAuth" method="POST">
           <Form.Item>
+            <Input id="number" />
+            <div id="recaptcha-container"></div>
+            <button type="submit" >SendCode</button>
             <Input onChange={handleInputChange} value={temporaryInputValue} />
-            <div id="recaptcha"></div>
-            <button onClick={handleClick}>Send code</button>
           </Form.Item>
         </Form>
       </div>
