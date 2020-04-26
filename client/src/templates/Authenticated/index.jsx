@@ -8,6 +8,8 @@ import Heading from "../../components/Unauthenticated/Heading";
 import UserSelection from "../../components/Authenticated/UserSelection";
 import Giver from "../../components/Authenticated/UserSelection/Giver";
 import Receiver from "../../components/Authenticated/UserSelection/Receiver";
+import Completion from "../../components/Authenticated/UserSelection/Completion";
+import Donations from "../../components/Authenticated/UserSelection/Donations";
 
 const { Content, Footer, Header } = Layout;
 
@@ -36,6 +38,8 @@ const Authenticated = () => {
             <Route path="/user-selection" exact component={UserSelection} />
             <Route path="/giver" exact component={Giver} />
             <Route path="/receiver" exact component={Receiver} />
+            <Route path="/completion" exact component={Completion} />
+            <Route path="/donations" exact component={Donations} />
           </Switch>
           {/* <div
             style={{ margin: "0 auto", textAlign: "center", width: "100vw" }}

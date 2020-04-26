@@ -19,7 +19,6 @@ function App() {
   // Need to connect to endpoint that would give me that data.
 
   const isAuthenticated = true;
-
   return (
     <div className="App">
       {isAuthenticated ? <Authenticated /> : <Unauthenticated />}
