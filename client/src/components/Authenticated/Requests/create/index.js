@@ -22,9 +22,10 @@ class CreateRequest extends Component {
         this.state = {
             username: "",
             message: "",
-            date:""
+            date:" "
         };
     }
+    
 
     onChange = e => {
         const state = this.state;
@@ -33,7 +34,8 @@ class CreateRequest extends Component {
     };
 
     submitForm = (e) => {
-
+        
+        
         const {username, message,date} = this.state;
 
         if (username === '' || message === '') {
@@ -44,12 +46,16 @@ class CreateRequest extends Component {
         }
 
         
-
         this.ref.add({
             username,
             message,
             date
         }).then(addedDoc => {
+            var did = addedDoc.id;
+            this.ref.doc(did).update({
+                date:firebase.firestore.Timestamp.now()
+            });
+            console.log(did);
             console.log('Request submitted successfully', addedDoc);
             this.setState({
                 username: "",
@@ -63,6 +69,7 @@ class CreateRequest extends Component {
 
     render() {
         const {username,message,date} = this.state;
+        
         
 
         return (
@@ -90,7 +97,6 @@ class CreateRequest extends Component {
                     onChange={this.onChange}
                     value={message}
                 />
-
 
                 <Button
                     display="block"

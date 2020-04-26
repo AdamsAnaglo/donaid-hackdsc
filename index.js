@@ -26,6 +26,27 @@ const app = express();
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 5000;
 
+// firebase phone auth implementation
+window.onload=function () {
+    render();
+}
+
+function render() {
+    window.recapchaVerifier = new firebase.auth.RecaptchaVerifier("recaptcha-container");
+    recaptchaVerifier.render();
+}
+function phoneAuth(num) {
+    firebase.auth().SignInWithPhoneNumber(number,window.recapchaVerifier).then(function (confirmationResult) {
+        coderesult = confirmationResult;
+        console.log(coderesult);
+        alert("Message sent");
+    })
+}
+
+app.post('/userAuth', function(req, res) {
+    phoneAuth();
+}
+
 // bodyparser stuff goes here eventually
 
 app.use("/auth", authRoutes);

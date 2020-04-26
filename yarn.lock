@@ -2082,6 +2082,11 @@ keyv@^3.0.0:
   dependencies:
     json-buffer "3.0.0"
 
+l@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/l/-/l-0.6.0.tgz#1dac0e062ac94d29827facd8d0166aa5f196c56f"
+  integrity sha1-HawOBirJTSmCf6zY0BZqpfGWxW8=
+
 latest-version@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/latest-version/-/latest-version-5.1.0.tgz#119dfe908fe38d15dfa43ecd13fa12ec8832face"
