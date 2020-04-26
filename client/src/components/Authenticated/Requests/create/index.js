@@ -35,8 +35,8 @@ class CreateRequest extends Component {
 
     submitForm = (e) => {
         
-
-        const {username, message,date=firebase.firestore.Timestamp.now()} = this.state;
+        
+        const {username, message,date} = this.state;
 
         if (username === '' || message === '') {
             toaster.danger("Error!", {
@@ -46,7 +46,6 @@ class CreateRequest extends Component {
         }
 
         
-
         this.ref.add({
             username,
             message,
@@ -66,6 +65,7 @@ class CreateRequest extends Component {
 
     render() {
         const {username,message,date} = this.state;
+        
         
 
         return (
@@ -93,7 +93,6 @@ class CreateRequest extends Component {
                     onChange={this.onChange}
                     value={message}
                 />
-
 
                 <Button
                     display="block"
