@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Table } from "evergreen-ui";
-import RequestItem from './RequestItem';
+import RequestItem from "./RequestItem";
 
 class RequestTable extends Component {
   render() {
@@ -15,8 +15,8 @@ class RequestTable extends Component {
           <Table.TextHeaderCell>Action</Table.TextHeaderCell>
         </Table.Head>
         <Table.Body height={250}>
-          {requestList.map(request => (
-            <RequestItem key={request.key} request={request}/>
+          {requestList.map((request) => (
+            <RequestItem key={request.key} request={request} />
           ))}
         </Table.Body>
       </Table>
