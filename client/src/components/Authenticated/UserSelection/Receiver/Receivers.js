@@ -1,7 +1,7 @@
 import React from 'react';
-import firestore from "./firestore";
+import firestore from "./components/firestore";
 
-class User extends React.Component {
+class Receivers extends React.Component {
     updateInput = e => {
         this.setState({
           [e.target.name]: e.target.value
@@ -38,10 +38,10 @@ class User extends React.Component {
             onChange={this.updateInput}
             value={this.state.dob}
           />
-          <button onSubmit={this.addUser} type="submit">Submit</button>
+          <button onSubmit={this.addReceivers} type="submit">Submit</button>
         </form>
         );
       }
       
    }
-export default User;
+export default Receivers;
